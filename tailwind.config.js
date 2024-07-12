@@ -27,8 +27,8 @@ module.exports = {
                 extend : "nature"
             },
             radius: "smoothest",
-            background: "light",
-            border: "light",
+            background: "dark",
+            border: "dark",
             padding:"large",
             components: {
                 button: {
