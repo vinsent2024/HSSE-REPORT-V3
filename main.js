@@ -36,7 +36,9 @@ import "./assets/css/tailwind.css";
 
 // Function to enforce dark mode
 function enforceDarkMode() {
-  document.documentElement.classList.add("dark");
+  if (!document.documentElement.classList.contains("dark")) {
+    document.documentElement.classList.add("dark");
+  }
   localStorage.setItem("color-theme", "dark");
 }
 
@@ -46,27 +48,24 @@ enforceDarkMode();
 // Select all elements with the class "switcher"
 let switchers = document.querySelectorAll(".switcher");
 
-// Add event listeners to all switchers
+// Add event listeners to all switchers to enforce dark mode and allow other button functionality
 switchers.forEach((switcher) => {
   switcher.addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent default action
-    enforceDarkMode(); // Enforce dark mode on click
+    // Enforce dark mode on click, but do not prevent default to allow other button functionality
+    enforceDarkMode();
   });
 });
 
-// MutationObserver to monitor and enforce dark mode
-const observer = new MutationObserver((mutations) => {
-  mutations.forEach((mutation) => {
-    if (mutation.attributeName === "class") {
-      enforceDarkMode();
-    }
-  });
+// Listen for changes in the user's system preferences and enforce dark mode
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", enforceDarkMode);
+window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", enforceDarkMode);
+
+// Use a MutationObserver to ensure dark mode is enforced even if any script tries to change it
+const observer = new MutationObserver(() => {
+  enforceDarkMode();
 });
 
 // Start observing the documentElement for attribute changes
-observer.observe(document.documentElement, { attributes: true });
+observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
-// Override any system color scheme changes
-window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", enforceDarkMode);
-window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", enforceDarkMode);
 
