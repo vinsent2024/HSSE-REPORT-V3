@@ -48,12 +48,12 @@ let switchers = document.querySelectorAll(".switcher");
 
 // Add event listeners to all switchers
 switchers.forEach((switcher) => {
-  switcher.addEventListener("click", function () {
-    // Enforce dark mode on click
-    enforceDarkMode();
+  switcher.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default action
+    enforceDarkMode(); // Enforce dark mode on click
   });
 });
 
-// Listen for changes in the user's system preferences and enforce dark mode
+// Override any system color scheme changes
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", enforceDarkMode);
 window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", enforceDarkMode);
