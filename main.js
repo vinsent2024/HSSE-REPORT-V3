@@ -54,6 +54,19 @@ switchers.forEach((switcher) => {
   });
 });
 
+// MutationObserver to monitor and enforce dark mode
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (mutation.attributeName === "class") {
+      enforceDarkMode();
+    }
+  });
+});
+
+// Start observing the documentElement for attribute changes
+observer.observe(document.documentElement, { attributes: true });
+
 // Override any system color scheme changes
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", enforceDarkMode);
 window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", enforceDarkMode);
+
