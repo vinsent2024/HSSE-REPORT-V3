@@ -1,11 +1,11 @@
 {
     "name": "Monthly HSSE Report",
     "short_name": "HSSE Report",
-    "start_url": ".",
+    "start_url": "index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#090D0F",
-    "description": "MOnthly HSSE Reports",
+    "description": "Monthly HSSE Reports",
     "icons": [
       {
         "src": "public/favicon.png",
