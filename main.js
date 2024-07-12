@@ -34,14 +34,5 @@ switchers.forEach((switcher) => {
  }); */
 
 
-// Always set dark mode
-document.documentElement.classList.add("dark");
-localStorage.setItem("color-theme", "dark");
-
-// Optional: Hide switcher elements or remove related code
-
-// You can remove the switcher event listeners and toggle logic since dark mode is always on
-
-
 
 

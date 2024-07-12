@@ -743,13 +743,17 @@
         </div>
     </footer>
                     
-    <script type="module" src="./main.js"></script>
     <script type="module">
+        
         import Swiper from 'swiper/bundle';
         import { Pagination } from 'swiper/modules';
         import 'swiper/css/bundle';
         import 'swiper/css/pagination';
         import 'swiper/css/effect-cards'
+        import "./assets/css/tailwind.css";
+
+        document.documentElement.classList.add("dark");
+localStorage.setItem("color-theme", "dark");
 
         const swiper = new Swiper('.proofSlides', {
             effect: "cube",
