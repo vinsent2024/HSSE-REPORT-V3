@@ -1,10 +1,10 @@
 {
-    "name": "Your App Name",
-    "short_name": "App",
+    "name": "Monthly HSSE Report",
+    "short_name": "HSSE Report",
     "start_url": "/",
     "display": "fullscreen", 
-    "background_color": "#FFFFFF",
-    "theme_color": "#FFFFFF",
+    "background_color": "#090D0F",
+    "theme_color": "#090D0F",
     "icons": [
       {
         "src": "/public/favicon.png",
