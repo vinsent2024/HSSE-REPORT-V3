@@ -32,3 +32,7 @@ switchers.forEach((switcher) => {
     }
   });
 });
+document.getElementById('menu').addEventListener('click', function() {
+  var menuItems = document.getElementById('menu-items');
+  menuItems.classList.toggle('show');
+});
