@@ -8,6 +8,8 @@
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" media="(prefers-color-scheme: light)" />
         <link rel="icon" type="image/svg+xml" href="/darkfavicon.svg" media="(prefers-color-scheme: dark)" />
 
+      <script type="module" crossorigin src="/assets/index-hvGCh7gD.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-kCFXdlHM.css">
     </head>
     
     <body class="bg-white dark:bg-gray-900 dark:before:fixed dark:before:-z-50 dark:before:inset-0 dark:before:bg-gray-950/50">
@@ -382,39 +384,6 @@
             </div>
         </div>
     </footer>
-                    
-    <script type="module">
-        
-        import Swiper from 'swiper/bundle';
-        import { Pagination } from 'swiper/modules';
-        import 'swiper/css/bundle';
-        import 'swiper/css/pagination';
-        import 'swiper/css/effect-cards'
-        import "./assets/css/tailwind.css";
-
-        document.documentElement.classList.add("dark");
-localStorage.setItem("color-theme", "dark");
-
-        const swiper = new Swiper('.proofSlides', {
-            effect: "cube",
-            cubeEffect : {
-                slideShadows: false,
-                shadow: false,
-                shadowOffset: 20,
-                shadowScale: 0.94,
-            },
-            loop: true,
-            autoplay : {
-                delay: 3000,
-                duration : 500
-            },
-            grabCursor: true,
-            modules: [Pagination],
-            centeredSlides: true,
-            pagination: {
-                el: '.swiper-pagination',
-            }
-        });
-    </script>
+                    
     </body>
 </html>

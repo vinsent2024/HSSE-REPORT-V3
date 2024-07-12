@@ -1,4 +1,4 @@
-import "./assets/css/tailwind.css";
+
 
 /* let switchers = document.querySelectorAll(".switcher");
 if (
