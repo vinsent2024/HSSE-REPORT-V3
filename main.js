@@ -34,16 +34,26 @@ import "./assets/css/tailwind.css";
 //});
 
 
-// Always set the website to dark mode
-document.documentElement.classList.add("dark");
-localStorage.setItem("color-theme", "dark");
+// Function to enforce dark mode
+function enforceDarkMode() {
+  document.documentElement.classList.add("dark");
+  localStorage.setItem("color-theme", "dark");
+}
 
-// Add event listeners to all switchers to ensure they keep the dark mode
+// Always set the website to dark mode and store this preference in localStorage
+enforceDarkMode();
+
+// Select all elements with the class "switcher"
 let switchers = document.querySelectorAll(".switcher");
+
+// Add event listeners to all switchers
 switchers.forEach((switcher) => {
   switcher.addEventListener("click", function () {
-    // Force the dark mode on click
-    document.documentElement.classList.add("dark");
-    localStorage.setItem("color-theme", "dark");
+    // Enforce dark mode on click
+    enforceDarkMode();
   });
 });
+
+// Listen for changes in the user's system preferences and enforce dark mode
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", enforceDarkMode);
+window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", enforceDarkMode);
