@@ -20,8 +20,8 @@ switchers.forEach((switcher) => {
     switcher.addEventListener("click", function () {
         // Toggle dark mode
         if (document.documentElement.classList.contains("dark")) {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("color-theme", "light");
+            document.documentElement.classList.remove("light");
+            localStorage.setItem("color-theme", "dark");
         } else {
             document.documentElement.classList.add("dark");
             localStorage.setItem("color-theme", "dark");
