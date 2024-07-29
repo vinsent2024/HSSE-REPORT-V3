@@ -653,31 +653,27 @@ localStorage.setItem("color-theme", "dark");
             }
         });
 
+        document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.getElementById("default-search"); // Updated ID to match your input field
+    const cardContainer = document.getElementById("card-container");
+    const cards = cardContainer.getElementsByClassName("relative");
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Get references to the search form, input, and card container
-    const searchForm = document.querySelector('form');
-    const searchInput = document.getElementById('default-search');
-    const cardContainer = document.getElementById('card-container');
-    const cards = cardContainer.getElementsByClassName('relative');
+    // Event listener for search input
+    searchInput.addEventListener("input", function() {
+        const query = searchInput.value.toLowerCase().trim();
 
-    // Handle form submission
-    searchForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent default form submission
-
-        const query = searchInput.value.trim().toLowerCase(); // Normalize search query
-
-        // Loop through each card and show/hide based on query
         Array.from(cards).forEach(card => {
             const cardName = card.getAttribute('data-name').toLowerCase();
-            if (cardName.includes(query) || query === '') {
-                card.style.display = 'block'; // Show card if it matches query
+            if (cardName.includes(query) || query === "") {
+                card.style.display = "";
             } else {
-                card.style.display = 'none'; // Hide card if it doesn't match query
+                card.style.display = "none";
             }
         });
     });
 });
+
+
 
 
     </script>
