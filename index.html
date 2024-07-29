@@ -666,7 +666,7 @@ localStorage.setItem("color-theme", "dark");
         Array.from(cards).forEach(card => {
             const cardName = card.getAttribute('data-name').toLowerCase();
             if (cardName.includes(query)) {
-                card.style.display = 'block'; // Show the card
+                card.style.display = ''; // Show the card
             } else {
                 card.style.display = 'none'; // Hide the card
             }
