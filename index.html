@@ -654,22 +654,26 @@ localStorage.setItem("color-theme", "dark");
         });
 
         document.addEventListener("DOMContentLoaded", function() {
-    const searchInput = document.getElementById("default-search"); // Updated ID to match your input field
+    const searchInput = document.getElementById("default-search");
     const cardContainer = document.getElementById("card-container");
-    const cards = cardContainer.getElementsByClassName("relative");
-
+    
     // Event listener for search input
     searchInput.addEventListener("input", function() {
-        const query = searchInput.value.toLowerCase().trim();
+        const query = searchInput.value.toLowerCase();
+        const cards = cardContainer.querySelectorAll(".relative.group"); // Adjust this selector if needed
+        let found = false;
 
-        Array.from(cards).forEach(card => {
-            const cardName = card.getAttribute('data-name').toLowerCase();
-            if (cardName.includes(query) || query === "") {
+        cards.forEach(card => {
+            const title = card.querySelector('p').textContent.toLowerCase(); // Adjust this selector if needed
+            if (title.includes(query)) {
                 card.style.display = "";
+                found = true;
             } else {
                 card.style.display = "none";
             }
         });
+
+        // No results message can be added here if needed
     });
 });
 
