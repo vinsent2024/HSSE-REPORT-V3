@@ -49,28 +49,3 @@ self.addEventListener('fetch', event => {
       })
   );
 });
-
-// Listen for the 'beforeinstallprompt' event to handle the PWA install prompt
-self.addEventListener('beforeinstallprompt', event => {
-  event.preventDefault();
-  // Store the event so it can be triggered later.
-  window.deferredPrompt = event;
-  // Show the install prompt to the user in a custom way (e.g., a button)
-  document.getElementById('installButton').style.display = 'block';
-});
-
-// Handle the install button click event to show the install prompt
-document.getElementById('installButton').addEventListener('click', () => {
-  const promptEvent = window.deferredPrompt;
-  if (promptEvent) {
-    promptEvent.prompt();
-    promptEvent.userChoice.then(choiceResult => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User accepted the A2HS prompt');
-      } else {
-        console.log('User dismissed the A2HS prompt');
-      }
-      window.deferredPrompt = null;
-    });
-  }
-});
