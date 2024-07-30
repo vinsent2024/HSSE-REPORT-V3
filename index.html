@@ -7,7 +7,7 @@
         <meta name="description" content="Modern landing page built with tailus themer" />
         <link rel="icon" type="image/svg+xml" href="/public/favicon.png" media="(prefers-color-scheme: light)" />
         <link rel="icon" type="image/svg+xml" href="/public/favicon.png" media="(prefers-color-scheme: dark)" />
-        <link rel="manifest" href="manifest.json">
+        <link rel="manifest" href="/manifest.json">
 
 
     </head>
@@ -611,7 +611,7 @@
             <div class="flex items-center justify-between rounded-md bg-gray-100 px-6 py-3 dark:bg-gray-900">
                 <span class="text-gray-600 dark:text-gray-400">&copy; HSSE CAINTA 2024 - Present</span>
         <!-- <a href="#" class="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500">Licence</a> -->
-        <button id="installButton" style="display:none;">Install App</button>
+    
             </div>
         </div>
     </footer>
@@ -675,41 +675,6 @@ localStorage.setItem("color-theme", "dark");
 
 
 
-if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').then(registration => {
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, err => {
-          console.log('ServiceWorker registration failed: ', err);
-        });
-      });
-    }
-
-    let deferredPrompt;
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-      // Prevent the mini-infobar from appearing on mobile
-      e.preventDefault();
-      // Stash the event so it can be triggered later.
-      deferredPrompt = e;
-      // Update UI notify the user they can install the PWA
-      document.getElementById('installButton').style.display = 'block';
-    });
-
-    const installButton = document.getElementById('installButton');
-    installButton.addEventListener('click', () => {
-      // Show the install prompt
-      deferredPrompt.prompt();
-      // Wait for the user to respond to the prompt
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the install prompt');
-        } else {
-          console.log('User dismissed the install prompt');
-        }
-        deferredPrompt = null;
-      });
-    });
 
 
     </script>
