@@ -5,7 +5,7 @@ const dynamicCacheName = 'dynamic-cache-v1'; // Cache for dynamic content
 const urlsToCache = [
   '/',
   'index.html',
-  'public/favicon.png',
+  'public/favicon.svg',
   // Add more resources as needed
 ];
 
