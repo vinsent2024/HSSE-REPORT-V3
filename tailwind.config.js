@@ -23,9 +23,7 @@ module.exports = {
     
     plugins: [
         themer({
-            colors: {
-                'custom-hover': '#4dc7e4',
-              },
+           
             palette: {
                 extend : "nature"
             },
